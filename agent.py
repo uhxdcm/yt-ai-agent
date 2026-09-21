@@ -1,7 +1,7 @@
 import os
 from google import genai
 
-# Debug check to verify if GitHub is passing the secret key
+# Verify secret key
 api_key = os.environ.get("GEMINI_API_KEY")
 if not api_key:
     print("ERROR: GEMINI_API_KEY environment variable is missing or empty!")
@@ -20,8 +20,9 @@ def generate_youtube_content():
     Format the output cleanly with labels: TITLE, SCRIPT, DESCRIPTION, HASHTAGS.
     """
 
+    # Updated model name to match the latest available endpoint
     response = client.models.generate_content(
-        model='gemini-2.5-flash',
+        model='gemini-3.6-flash',
         contents=prompt,
     )
     
